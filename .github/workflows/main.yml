@@ -8,34 +8,23 @@ jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
 
-    # defaults:
-    #   run:
-    #     shell: bash -eux {0}
+    defaults:
+      run:
+        shell: bash -eux {0}
         
     steps:
       - name: Checkout Repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
         with:
           persist-credentials: false
 
-      # - name: Set up Node.js
-      #   uses: actions/setup-node@v2
-      #   with:
-      #     node-version: '16'
-
-      # - name: Deploy to GitHub Pages
-      #   uses: peaceiris/actions-gh-pages@v3
-      #   with:
-      #     deploy_key: ${{ secrets.PORTFOLIO_ACTIONS }}
-      #     publish_dir: ./  # Replace with the directory containing your static site files
-      - name: Install 🔧
-        run: npm install
-
-      - name: Build 🏗️
-        run: npm run build
-
-      - name: Deploy 🚀
-        uses: JamesIves/github-pages-deploy-action@releases/v3
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
         with:
-          GITHUB_TOKEN: ${{ secrets.PORTFOLIO_ACTIONS }}
-          BRANCH: gh-pages
+          node-version: '16'
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          deploy_key: ${{ secrets.PORTFOLIO_ACTIONS }}
+          publish_dir: ./  # Replace with the directory containing your static site files
