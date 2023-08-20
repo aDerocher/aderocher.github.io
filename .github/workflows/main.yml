@@ -24,7 +24,8 @@ jobs:
           node-version: '16'
 
       - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
+        uses: JamesIves/github-pages-deploy-action@v4.4.3
+        # uses: peaceiris/actions-gh-pages@v3
         with:
           deploy_key: ${{ secrets.PORTFOLIO_ACTIONS }}
           publish_dir: ./  # Replace with the directory containing your static site files
