@@ -7,6 +7,10 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: bash -eux {0}
+        
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v2
