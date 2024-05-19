@@ -16,7 +16,12 @@ jobs:
           lfs: true
 
       - name: Deploy 🚀
-        uses: JamesIves/github-pages-deploy-action@v4
-        with:
-          ssh-key: ${{ secrets.PORTFOLIO_ACTIONS }}
-          folder: ./
+        run: |
+          echo "Starting deployment..."
+          rsync -avz --delete --partial --progress ./ user@remote:/destination/directory/
+        env:
+          RSYNC_RSH: 'ssh -o StrictHostKeyChecking=no'
+      # uses: JamesIves/github-pages-deploy-action@v4
+        # with:
+        #   ssh-key: ${{ secrets.PORTFOLIO_ACTIONS }}
+        #   folder: ./
