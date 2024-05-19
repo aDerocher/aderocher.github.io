@@ -18,5 +18,5 @@ jobs:
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          deploy_key: ${{ secrets.PORTFOLIO_ACTIONS }}
+          # deploy_key: ${{ secrets.PORTFOLIO_ACTIONS }}
           folder: ./
