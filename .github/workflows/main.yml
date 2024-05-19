@@ -20,3 +20,4 @@ jobs:
         with:
           # deploy_key: ${{ secrets.PORTFOLIO_ACTIONS }}
           folder: ./
+          ssh-key: true
